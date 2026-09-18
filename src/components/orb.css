@@ -1,0 +1,104 @@
+.jarvis-orb {
+  --core-activity: 0.5;
+  --core-scale: 1;
+  position: relative;
+  width: min(100%, 570px);
+  aspect-ratio: 1;
+  isolation: isolate;
+  color: #00d9ff;
+  flex-shrink: 0;
+}
+
+.orb-geometry,
+.orb-waveform {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.orb-ambient-halo {
+  position: absolute;
+  inset: 17%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #01ceff0a 0%, #00c4f814 26%, #02d6ff08 50%, transparent 72%);
+  box-shadow: 0 0 85px 17px #00c8f004;
+  opacity: var(--core-activity);
+  transform: scale(var(--core-scale));
+  will-change: transform, opacity;
+}
+
+.orb-ring {
+  transform-origin: 300px 300px;
+  animation: orb-rotate 90s linear infinite;
+  will-change: transform;
+}
+
+.orb-ring-outer { animation-duration: 130s; }
+.orb-ring-segments { animation-duration: 85s; animation-direction: reverse; }
+.orb-ring-middle { animation-duration: 72s; }
+.orb-ring-armature { animation-duration: 110s; animation-direction: reverse; }
+.orb-turbine { animation-duration: 95s; }
+.orb-core {
+  transform-origin: 300px 300px;
+  transform: scale(var(--core-scale));
+  transition: transform 180ms ease, opacity 700ms ease;
+  opacity: .94;
+}
+.orb-central-light { opacity: var(--core-activity); }
+.orb-processing-particles { opacity: 0; animation-duration: 3s; transition: opacity 600ms ease; }
+
+.jarvis-orb[data-state='listening'] .orb-core,
+.jarvis-orb[data-state='speaking'] .orb-core { opacity: 1; }
+.jarvis-orb[data-state='listening'] .orb-ring-segments { animation-duration: 27s; }
+.jarvis-orb[data-state='listening'] .orb-ring-middle { animation-duration: 23s; }
+.jarvis-orb[data-state='listening'] .orb-geometry { transform: scale(.97); }
+.orb-geometry { transition: transform 900ms cubic-bezier(.2,.7,.2,1); }
+.jarvis-orb[data-state='processing'] .orb-ring-outer { animation-duration: 21s; }
+.jarvis-orb[data-state='processing'] .orb-ring-segments { animation-duration: 10s; }
+.jarvis-orb[data-state='processing'] .orb-ring-middle { animation-duration: 7s; }
+.jarvis-orb[data-state='processing'] .orb-ring-armature { animation-duration: 16s; }
+.jarvis-orb[data-state='processing'] .orb-processing-particles { opacity: .8; }
+.jarvis-orb[data-state='speaking'] .orb-ring-segments { animation-duration: 40s; }
+
+.orb-sweep-mask {
+  position: absolute;
+  inset: 30.5%;
+  overflow: hidden;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 700ms ease;
+  pointer-events: none;
+}
+.orb-sweep {
+  height: 35%;
+  background: linear-gradient(transparent, #29dcfa16 97%, #7bf1ff50);
+  animation: orb-scan 2.8s linear infinite;
+  will-change: transform;
+}
+.jarvis-orb[data-state='processing'] .orb-sweep-mask { opacity: 1; }
+.jarvis-orb[data-reduced-motion='true'] .orb-ring,
+.jarvis-orb[data-reduced-motion='true'] .orb-sweep { animation: none; }
+.jarvis-orb[data-reduced-motion='true'] *,
+.jarvis-orb[data-reduced-motion='true'] .orb-core { transition: none; }
+.jarvis-orb[data-reduced-motion='true'] .orb-sweep-mask { display: none; }
+.jarvis-orb[data-paused='true'] * { animation-play-state: paused !important; }
+
+.background-particles {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: .65;
+}
+
+@keyframes orb-rotate { to { transform: rotate(360deg); } }
+@keyframes orb-scan { from { transform: translateY(-110%); } to { transform: translateY(390%); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .jarvis-orb *, .jarvis-orb .orb-core { animation: none !important; transition: none !important; }
+  .jarvis-orb .orb-sweep-mask { display: none; }
+}
