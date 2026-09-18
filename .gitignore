@@ -3,3 +3,8 @@ dist/
 *.tsbuildinfo
 .DS_Store
 test-results/
+build/
+.native-test-build/
+.env
+.env.*
+*.log

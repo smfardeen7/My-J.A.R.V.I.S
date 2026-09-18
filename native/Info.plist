@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+<key>CFBundleName</key><string>JARVIS</string>
+<key>CFBundleDisplayName</key><string>J.A.R.V.I.S.</string>
+<key>CFBundleIdentifier</key><string>com.smfardeen.jarvis</string>
+<key>CFBundleExecutable</key><string>JARVIS</string>
+<key>CFBundleIconFile</key><string>JarvisIcon</string>
+<key>CFBundlePackageType</key><string>APPL</string>
+<key>CFBundleShortVersionString</key><string>1.1.0</string>
+<key>CFBundleVersion</key><string>2</string>
+<key>LSMinimumSystemVersion</key><string>14.0</string>
+<key>NSHighResolutionCapable</key><true/>
+<key>NSMicrophoneUsageDescription</key><string>J.A.R.V.I.S. uses your microphone only when you start listening, to recognize your commands on this Mac.</string>
+<key>NSSpeechRecognitionUsageDescription</key><string>J.A.R.V.I.S. transcribes your voice commands on this device. Audio is not sent to a cloud speech service.</string>
+<key>NSAppTransportSecurity</key><dict><key>NSAllowsLocalNetworking</key><true/></dict>
+<key>NSSupportsAutomaticGraphicsSwitching</key><true/>
+</dict></plist>

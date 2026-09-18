@@ -7,7 +7,11 @@
     "dev": "vite --host 0.0.0.0",
     "build": "tsc -b && vite build",
     "preview": "vite preview --host 0.0.0.0",
-    "test": "vitest run"
+    "test": "vitest run",
+    "mac:build": "npm run build && node scripts/build-mac.mjs",
+    "mac:install": "node scripts/install-mac.mjs",
+    "mac:test": "node scripts/test-mac.mjs",
+    "mac:voice-setup": "node scripts/setup-speaker.mjs"
   },
   "dependencies": {
     "@fontsource/rajdhani": "^5.2.0",

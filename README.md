@@ -1,6 +1,16 @@
 # J.A.R.V.I.S. holographic interface
 
-A React + TypeScript animated UI shell with Framer Motion, SVG reactor geometry and canvas audio/particle rendering. No assistant service, API key, recording or network audio upload is included.
+A React + TypeScript animated UI shell with Framer Motion, SVG reactor geometry and canvas audio/particle rendering, plus a native Mac assistant. The Mac app adds private Ollama conversation, on-device speech recognition, spoken replies, and explicit Mac commands. The browser demo remains an independent UI simulation.
+
+## Mac desktop app
+
+Open `~/Applications/JARVIS.app`. The Mac app supports local voice enrollment for Fardeen, Touch ID confirmation for Mac actions, and a metallic robotic voice. Voice matching is a fallible filter; it is not replay-proof authentication. See [Mac setup and controls](docs/macos.md) for enrollment, permissions, supported commands, local AI, and building/installing.
+
+```sh
+npm run mac:voice-setup
+npm run mac:build
+npm run mac:install
+```
 
 ## Run
 
