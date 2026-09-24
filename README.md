@@ -1,5 +1,11 @@
 # J.A.R.V.I.S. holographic interface
 
+![Source-derived architecture for J.A.R.V.I.S.](docs/images/project-overview.png)
+
+**Implementation overview:** A local Mac assistant with a reusable React voice interface. [Source map and scope](docs/PORTFOLIO.md).
+
+Browser demo simulates responses. Voice matching is a fallible filter, not replay-proof authentication.
+
 A React + TypeScript animated UI shell with Framer Motion, SVG reactor geometry and canvas audio/particle rendering, plus a native Mac assistant. The Mac app adds private Ollama conversation, on-device speech recognition, spoken replies, and explicit Mac commands. The browser demo remains an independent UI simulation.
 
 ## Mac desktop app
